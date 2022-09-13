@@ -1,0 +1,16 @@
+We are using React to build a checklist.
+The website will need an initial login. 
+The website will have previous forms on file and an option to add a new file. 
+The website does not need to compatible with phone sizes initially.
+You should be able to skip a portion of questions for later.
+Should inform user when questions are unanswered and should have different
+answer formats. The questions and answered should be made into a text document and then sent to the user.
+
+
+Questions on features:
+Should we have them input multiple emails to send the file to as an option and have it default to 
+the user's email on file?
+
+How long should a form be kept and should we have certain forms? I think 6 months was given?
+
+Should we just use JSON files?
