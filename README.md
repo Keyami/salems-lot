@@ -24,16 +24,21 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 INTRODUCTION
 ------------
 
 # salems-lot
 CSCI 4700 (2022) Project: "Create an app/software that could take in a procedure checklist and turn it into a step by step guide"
 
-(end) INTRODUCTION
+(end)INTRODUCTION
 ------------
 
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 REQUIREMENTS
 ------------
 
@@ -46,7 +51,56 @@ $create branch
 $install mongoDB community edition
 	*create new db named salems_lot_db
 													DEV TOOLS
-														POSTMAN install 								
+														POSTMAN install 							
+(end)REQUIREMENTS
+------------
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+RECOMMENDED MODULES
+-------------------
+
+
+(end)RECOMMENDED MODULES
+-------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+INSTALLATION
+------------
+~~~~~~~~~~~~~~~						checklist						                        ~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~													                            ~~~~~~~~~~~~~~~~~~
+$cd into root directory of checklist
+ * npm install react@latest react-dom@latest
+ * npm install react-router-dom
+ * npm install bootstrap@4.6.2
+ * npm install axios
+ * npm install react-validation validator
+
+~~~~~~~~~~~~~~~						auth_server						                        ~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~													                            ~~~~~~~~~~~~~~~~~~
+$cd .. (to root of project)
+ * cd auth_server
+ * npm install express mongoose cors jsonwebtoken bcryptjs --save
+
+
+(end)INSTALLATION
+------------
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+CONFIGURATION
+-------------
+
+
 ~~~~~~~~~~~~~~~						checklist						~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~													~~~~~~~~~~~~~~~~~~~~
 
@@ -59,36 +113,38 @@ $cd into root directory of checklist
 
 ~~~~~~~~~~~~~~~						auth_server						~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~													~~~~~~~~~~~~~~~~~~~~
-	
 $cd .. (to root of project)
  * cd auth_server
  * npm install express mongoose cors jsonwebtoken bcryptjs --save
- 
 
 
-(end) REQUIREMENTS
-------------
+(end)CONFIGURATION
+-------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+TROUBLESHOOTING
+---------------
 
+(end)TROUBLESHOOTING
+---------------
 
+FAQ
+---
 
-RECOMMENDED MODULES
--------------------
+MAINTAINERS
+-----------
 
-
-(end)RECOMMENDED MODULES
--------------------
-
-
-INSTALLATION
-------------
- 
- * Install as you would normally install a contributed Drupal module. Visit
-   https://www.drupal.org/node/895232/ for further information.
-
- * You may want to disable Toolbar module, since its output clashes with
-   Administration Menu.
-
-(end)INSTALLATION
-------------
+Current maintainers:
+ * Brian
+ * Brice Roberts (devloren) - https://github.com/devloren
+ * Gage  
+ * Jaylon
+ * Pierce
+ * Riley
+This project has been sponsored by:
+ * Salem's Lot
+ *  ~~~ Middle Tennessee State University
+ *  ~~~ Computer Science Department
+ *  ~~~ Software Engineering CSCI-4700
+ *  ~~~ Fall 2022 Group Project
