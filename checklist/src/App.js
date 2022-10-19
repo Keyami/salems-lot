@@ -11,8 +11,7 @@ import Home from "./components/home.component";
 import Profile from "./components/profile.component";
 import ResearchUser from "./components/researcher-user.component";
 import ResearchModerator from "./components/researcher-moderator.component";
-import BoardAdmin from "./components/researcher-admin.component";
-
+import ResearchAdmin from "./components/researcher-admin.component";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -125,7 +124,7 @@ class App extends Component {
             <Route path="/profile" element={<Profile />} />
             <Route path="/user" element={<ResearchUser />} />
             <Route path="/mod" element={<ResearchModerator />} />
-            <Route path="/admin" element={<BoardAdmin />} />
+            <Route path="/admin" element={<ResearchAdmin />} />
           </Routes>
         </div>
       </div>
