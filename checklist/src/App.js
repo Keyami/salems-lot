@@ -12,6 +12,8 @@ import Profile from "./components/profile.component";
 import ResearchUser from "./components/researcher-user.component";
 import ResearchModerator from "./components/researcher-moderator.component";
 import ResearchAdmin from "./components/researcher-admin.component";
+import Fullsheet from "./components/add-form.component"
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -56,8 +58,9 @@ class App extends Component {
           </Link>
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
-            <a target="_blank" href="https://github.com/Keyami/salems-lot" className="nav-link">Salems Lot</a>
-
+              <Link to={"/add-form"} className="nav-link">
+                    Add Form
+              </Link>
             </li>
 
             {showModeratorBoard && (
@@ -119,6 +122,7 @@ class App extends Component {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/add-form" element={<Fullsheet />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/profile" element={<Profile />} />

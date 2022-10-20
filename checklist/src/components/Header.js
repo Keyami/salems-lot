@@ -11,7 +11,6 @@ function Header() {
           </div>
           <div className="nav-right">
             <div className="tab">
-              <a href="https://github.com/Keyami/salems-lot">Salem's Lot</a>
             </div>
           </div>
         </nav>
