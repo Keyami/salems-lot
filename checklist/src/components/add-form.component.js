@@ -1,4 +1,5 @@
 import React, { Component, useState } from "react";
+import FormInformation from "./FormInformation.js";
 //import Form from "react-validation/build/form";
 //import Input from "react-validation/build/input";
 //import CheckButton, { button } from "react-validation/build/button";
@@ -71,7 +72,7 @@ function AddForm() {
           {formFields.map((form, index) => {
             return (
               <div key={index}>
-                <label>{index+1}</label>
+                <label className="fontColor">{index+1}</label>
                 <input
                   input="text"
                   name='question'
@@ -99,10 +100,21 @@ function AddForm() {
   
 function Fullsheet(){
     return(
-        <div>    
-            <SheetName/>   
-             <AddForm/>
-        </div>
+      <div>    
+      <FormInformation/>
+
+      <div className="Pre-Interview">
+      <h1 className="fontColor">Pre Interview</h1>
+      <SheetName/>   
+      <AddForm/>
+      </div>
+
+      <div className="Post-interview">
+      <h1 className="fontColor">Post Interview</h1>
+      <SheetName/>   
+      <AddForm/>
+      </div>
+  </div>
     )
 }
 

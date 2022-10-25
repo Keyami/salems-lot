@@ -91,3 +91,38 @@ body {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
+
+.fontColor{
+  color: #CFAE70;
+}
+
+.sessionDate{
+  position: relative;
+  left: 40%;
+  bottom: 60px;
+}
+
+.sessionID{
+  position: relative;
+  width: 300px;
+}
+
+.sessionTime{
+  position: relative;
+  left: 40%;
+  bottom: 123px;
+}
+
+.RoomNumber{
+  position: relative;
+  bottom: 60px;
+}
+
+.Pre-Interview{
+  position: relative;
+  bottom: 50px;
+}
+
+.Post-Interview{
+  position: relative;
+}
