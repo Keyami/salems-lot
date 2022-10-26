@@ -12,7 +12,7 @@ import Profile from "./components/profile.component";
 import ResearchUser from "./components/researcher-user.component";
 import ResearchModerator from "./components/researcher-moderator.component";
 import ResearchAdmin from "./components/researcher-admin.component";
-import Fullsheet from "./components/add-form.component"
+import Fullsheet from "./components/add-form.component";
 
 class App extends Component {
   constructor(props) {
