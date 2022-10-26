@@ -1,7 +1,5 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const cors = require("cors");
-const dbConfig = require("./app/config/db.config.js");
 
 const app = express();
 
@@ -13,9 +11,6 @@ app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
 app.use(express.json());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
@@ -45,6 +40,7 @@ app.get("/", (req, res) => {
 // routes
 require("./app/routes/auth.routes")(app);
 require("./app/routes/user.routes")(app);
+require("./app/routes/research-form.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
@@ -83,7 +79,7 @@ function initial() {
         }
 
         console.log("added 'admin' to roles collection");
-      });
+      });      
     }
   });
 }

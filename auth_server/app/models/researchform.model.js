@@ -1,5 +1,7 @@
 module.exports = mongoose => {
-    var schema = mongoose.Schema(
+    const ResearchForm = mongoose.model(
+      "researchform",
+      mongoose.Schema(
         {
             title: String,
             description: String,
@@ -12,9 +14,9 @@ module.exports = mongoose => {
             ],
             published: Boolean
         },
-        { timestamps: true }      
+        { timestamps: true } 
+      )
     );
+  
     return ResearchForm;
 };
-
-  
