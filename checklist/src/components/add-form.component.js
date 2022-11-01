@@ -1,10 +1,10 @@
-import React, { Component, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-//import 'bootstrap/dist/css/bootstrap.min.css';
+import './../custom.scss';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Row from 'react-bootstrap/Row';
 import DropdownButton from 'react-bootstrap/DropdownButton';
+import React, { Component, useState } from "react";
 import FormInformation from "./FormInformation.js";
 //import Form from "react-validation/build/form";
 //import Input from "react-validation/build/input";
@@ -117,13 +117,13 @@ function Fullsheet(){
       <FormInformation/>
 
       <div className="Pre-Interview">
-      <h1 className="fontColor">Pre Interview</h1>
+      <h1 className="fontColor">Pre Session</h1>
       <SheetName/>   
       <AddForm/>
       </div>
 
       <div className="Post-interview">
-      <h1 className="fontColor">Post Interview</h1>  
+      <h1 className="fontColor">Post Session</h1>  
       <AddForm/>
       </div>
   </div>
