@@ -81,6 +81,7 @@ $cd into root directory of checklist
  * npm install react@latest react-dom@latest
  * npm install react-router-dom
  * npm install bootstrap@4.6.2
+ * npm install react-bootstrap
  * npm install axios
  * npm install react-validation validator
 
