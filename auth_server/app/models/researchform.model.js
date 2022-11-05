@@ -6,6 +6,7 @@ module.exports = mongoose => {
             title: String,
             description: String,
             researchGroupId: String,
+            researchCategory: String,
             sections: [
             {
                 type: mongoose.Schema.Types.Mixed,

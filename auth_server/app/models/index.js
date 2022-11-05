@@ -8,7 +8,7 @@ db.mongoose = mongoose;
 db.url = dbConfig.url;
 db.user = require("./user.model");
 db.role = require("./role.model");
-db.researchforms = require("./researchform.model");
+db.researchforms = require("./researchform.model.js")(mongoose);
 
 db.ROLES = ["user", "admin", "moderator"];
 db.sections = [

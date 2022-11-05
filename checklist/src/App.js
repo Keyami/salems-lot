@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Routes, Route, Link } from "react-router-dom";
-//import "bootstrap/dist/css/bootstrap.min.css";
-//import "./App.css";
+
 
 import AuthService from "./services/auth.service";
 

@@ -17,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const db = require("./app/models");
 const Role = db.role;
+const ResearchForm = db.researchforms;
 
 db.mongoose
   .connect(db.url, {
@@ -40,7 +41,7 @@ app.get("/", (req, res) => {
 // routes
 require("./app/routes/auth.routes")(app);
 require("./app/routes/user.routes")(app);
-require("./app/routes/research-form.routes")(app);
+//require("./app/routes/researchform.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
@@ -79,7 +80,29 @@ function initial() {
         }
 
         console.log("added 'admin' to roles collection");
-      });      
+      });    
+              
     }
   });
+
+
+      // example of how to add form to database from code
+          // uncomment to instantiate in your database.
+    ResearchForm.estimatedDocumentCount((err, count) => {
+      if (!err && count === 0) {
+
+        new ResearchForm({
+          title: "My First Form",
+          description: "Examples",
+          researchGroupId: "012345",
+          researchCategory: "Vanderbilt",
+        }).save(err => {
+          if (err) {
+            console.log("error", err);
+          }
+      
+          console.log("added 'My First Form' to Research collection");
+        });
+    }});
+  
 }

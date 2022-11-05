@@ -13,6 +13,9 @@ exports.create = (req, res) => {
   const ResearchForm = new ResearchForm({
     title: req.body.title,
     description: req.body.description,
+    researchGroupId: req.body.researchGroupId,
+    researchCategory: req.body.researchCategory,
+    
     published: req.body.published ? req.body.published : false
   });
 
