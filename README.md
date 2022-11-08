@@ -111,7 +111,7 @@ $cd into root directory of checklist
  * npm install bootstrap@4.6.2
  * npm install axios
  * npm install react-validation validator
-
+ * npm install sass
 ~~~~~~~~~~~~~~~						auth_server						~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~													~~~~~~~~~~~~~~~~~~~~
 $cd .. (to root of project)
