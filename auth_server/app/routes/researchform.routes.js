@@ -1,7 +1,7 @@
 const controller = require("../controllers/researchform.controller");
 const { authJwt } = require("../middlewares");
 
-module.exports = function(app) {
+module.exports = function(router) {
     app.use(function(req, res, next) {
       res.header(
         "Access-Control-Allow-Headers",
@@ -14,16 +14,16 @@ module.exports = function(app) {
     var router = require("express").Router();
   
     // Create a new research form
-    router.get("/api/user/researchforms",[authJwt.verifyToken, authJwt.isUser], researchform.create);
+    router.get("/api/researchforms", researchform.create);
   
     // Retrieve all research forms
-    router.get("/api/user/researchforms/",[authJwt.verifyToken, authJwt.isUser], researchform.findAll);
+    router.get("/api/researchforms/", researchform.findAll);
   
     // Retrieve all published research forms
-    router.get("/api/user/researchforms/published", [authJwt.verifyToken, authJwt.isUser],researchform.findAllPublished);
+    router.get("/api/user/researchforms/published", researchform.findAllPublished);
   
     // Retrieve a single researchform with id
-    touter.get("/api/user/researchform/:id", [authJwt.verifyToken, authJwt.isUser],researchform.findOne);
+    router.get("/api/user/researchform/:id", [authJwt.verifyToken, authJwt.isUser],researchform.findOne);
   
     // Update a researchform with id
     router.put("/api/user/researchform/:id", [authJwt.verifyToken, authJwt.isUser],researchform.update);

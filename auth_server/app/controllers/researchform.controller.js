@@ -35,7 +35,9 @@ exports.create = (req, res) => {
 
 // Retrieve all Research Forms from the database.
 exports.findAll = (req, res) => {
+  console.log("We are here!");
   const title = req.query.title;
+
     var condition = title ? { title: { $regex: new RegExp(title), $options: "i" } } : {};
 
   ResearchForm.find(condition)
