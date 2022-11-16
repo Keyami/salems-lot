@@ -14,6 +14,11 @@ import ResearchModerator from "./components/researcher-moderator.component";
 import ResearchAdmin from "./components/researcher-admin.component";
 import Fullsheet from "./components/add-form.component"
 
+
+import AddResearchForm from "./components/add-researchform.component";
+import ResearchForm from "./components/researchform.component";
+import ResearchFormsList from "./components/researchforms-list.component";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -129,6 +134,10 @@ class App extends Component {
             <Route path="/user" element={<ResearchUser />} />
             <Route path="/mod" element={<ResearchModerator />} />
             <Route path="/admin" element={<ResearchAdmin />} />
+            <Route path="/list" element={<ResearchFormsList/>} />
+            <Route path="/researchforms" element={<ResearchFormsList/>} />
+            <Route path="/add" element={<AddResearchForm/>} />
+            <Route path="/researchform/:id" element={<ResearchForm/>} />
           </Routes>
         </div>
       </div>
