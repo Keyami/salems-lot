@@ -1,20 +1,19 @@
 {
-  "name": "auth_server",
+  "name": "nem",
   "version": "1.0.0",
-  "description": "authentication server for research checklist program",
+  "description": "NODE CRUD",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "node.js",
+    "nodejs",
     "express",
-    "jwt",
-    "auth",
-    "authentication",
-    "mongodb"
+    "mongodb",
+    "rest",
+    "api"
   ],
-  "author": "salems-lot",
+  "author": "salem's-lot",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
