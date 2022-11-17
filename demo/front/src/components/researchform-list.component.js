@@ -36,7 +36,7 @@ export default class ResearchFormsList extends Component {
     ResearchFormDataService.getAll()
       .then(response => {
         this.setState({
-          tutorials: response.data
+          researchforms: response.data
         });
         console.log(response.data);
       })
@@ -48,14 +48,14 @@ export default class ResearchFormsList extends Component {
   refreshList() {
     this.retrieveResearchForms();
     this.setState({
-      currentTutorial: null,
+      currentResearchForm: null,
       currentIndex: -1
     });
   }
 
-  setActiveResearchForm(tutorial, index) {
+  setActiveResearchForm(researchform, index) {
     this.setState({
-      currentTutorial: tutorial,
+      currentResearchForm: researchform,
       currentIndex: index
     });
   }
@@ -73,14 +73,14 @@ export default class ResearchFormsList extends Component {
 
   searchTitle() {
     this.setState({
-      currentTutorial: null,
+      currentResearchForm: null,
       currentIndex: -1
     });
 
     ResearchFormDataService.findByTitle(this.state.searchTitle)
       .then(response => {
         this.setState({
-          tutorials: response.data
+          researchforms: response.data
         });
         console.log(response.data);
       })
@@ -90,7 +90,7 @@ export default class ResearchFormsList extends Component {
   }
 
   render() {
-    const { searchTitle, researchforms: researchforms, currentResearchForm: currentResearchForm, currentIndex } = this.state;
+    const { searchTitle, researchforms, currentResearchForm, currentIndex } = this.state;
 
     return (
       <div className="list row">

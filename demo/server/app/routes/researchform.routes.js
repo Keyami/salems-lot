@@ -24,5 +24,5 @@ module.exports = app => {
     // Create a new Tutorial
     router.delete("/", researchforms.deleteAll);
   
-    app.use('/api/forms', router);
+    app.use('/api/researchforms', router);
   };
