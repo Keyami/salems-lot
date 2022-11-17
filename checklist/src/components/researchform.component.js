@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import ResearchFormDataService from "../services/researchform.service";
-import UserService from "../services/user.service";
+import { withRouter } from '../common/with-router';
 
-export default class ResearchUser extends Component {
+class ResearchForm extends Component {
   constructor(props) {
     super(props);
     this.onChangeTitle = this.onChangeTitle.bind(this);
@@ -11,6 +11,7 @@ export default class ResearchUser extends Component {
     this.updatePublished = this.updatePublished.bind(this);
     this.updateResearchForm = this.updateResearchForm.bind(this);
     this.deleteResearchForm = this.deleteResearchForm.bind(this);
+
     this.state = {
       currentResearchForm: {
         id: null,
@@ -23,24 +24,7 @@ export default class ResearchUser extends Component {
   }
 
   componentDidMount() {
-    UserService.getUserBoard().then(
-      response => {
-        this.setState({
-          content: response.data
-        });
-      },
-      error => {
-        this.setState({
-          content:
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString()
-        });
-      }
-    );
-    this.getResearchForm(this.props.router.params.id);  
+    this.getResearchForm(this.props.router.params.id);
   }
 
   onChangeTitle(e) {
@@ -88,7 +72,7 @@ export default class ResearchUser extends Component {
       published: status
     };
 
-    ResearchFormDataService.update(this.state.currentTutorial.id, data)
+    ResearchFormDataService.update(this.state.currentResearchForm.id, data)
       .then(response => {
         this.setState(prevState => ({
           currentResearchForm: {
@@ -111,7 +95,7 @@ export default class ResearchUser extends Component {
       .then(response => {
         console.log(response.data);
         this.setState({
-          message: "The Form was updated successfully!"
+          message: "The form was updated successfully!"
         });
       })
       .catch(e => {
@@ -130,15 +114,11 @@ export default class ResearchUser extends Component {
       });
   }
 
-  
-
   render() {
-    const { currentTutorial } = this.state;
+    const { currentResearchForm } = this.state;
+
     return (
-      <div className="container">
-        <header className="jumbotron">
-          <h3>{this.state.content}</h3>
-          <div>
+      <div>
         {currentResearchForm ? (
           <div className="edit-form">
             <h4>Research Form</h4>
@@ -211,8 +191,8 @@ export default class ResearchUser extends Component {
           </div>
         )}
       </div>
-        </header>
-      </div>
     );
   }
 }
+
+export default withRouter(ResearchForm);
