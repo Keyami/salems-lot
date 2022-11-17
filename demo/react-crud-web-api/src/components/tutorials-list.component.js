@@ -115,7 +115,7 @@ export default class TutorialsList extends Component {
           </div>
         </div>
         <div className="col-md-6">
-          <h4>Tutorials List</h4>
+          <h4>Forms List</h4>
 
           <ul className="list-group">
             {tutorials &&
