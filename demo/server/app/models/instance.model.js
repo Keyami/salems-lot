@@ -1,8 +1,7 @@
 module.exports = mongoose => {
-    
-    
-    const ResearchForm = mongoose.model(
-      "researchform",
+    const InstanceSchema = new Schema({ name: String });
+    const Instance = mongoose.model(
+      "instance",
       mongoose.Schema(
         {
           title: String,
@@ -15,8 +14,5 @@ module.exports = mongoose => {
         { timestamps: true }
       )
     );
-    
-    return ResearchForm;
-  };
-
-  
+    return Instance;
+  }
