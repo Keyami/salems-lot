@@ -2,18 +2,18 @@ import React, { Component } from "react";
 import ResearchFormDataService from "../services/researchform.service";
 import { Link } from "react-router-dom";
 
-export default class ResearchFormsList extends Component {
+export default class InstanceList extends Component {
   constructor(props) {
     super(props);
     this.onChangeSearchTitle = this.onChangeSearchTitle.bind(this);
-    this.retrieveResearchForms = this.retrieveResearchForms.bind(this);
+    this.retrieveInstanceList = this.retrieveInstanceList.bind(this);
     this.refreshList = this.refreshList.bind(this);
     this.setActiveResearchForm = this.setActiveResearchForm.bind(this);
-    this.removeAllResearchForms = this.removeAllResearchForms.bind(this);
+    this.removeAllInstanceList = this.removeAllInstanceList.bind(this);
     this.searchTitle = this.searchTitle.bind(this);
 
     this.state = {
-      researchforms: [],
+      InstanceList: [],
       currentResearchForm: null,
       currentIndex: -1,
       searchTitle: ""
@@ -21,7 +21,7 @@ export default class ResearchFormsList extends Component {
   }
 
   componentDidMount() {
-    this.retrieveResearchForms();
+    this.retrieveInstanceList();
   }
 
   onChangeSearchTitle(e) {
@@ -32,11 +32,11 @@ export default class ResearchFormsList extends Component {
     });
   }
 
-  retrieveResearchForms() {
+  retrieveInstanceList() {
     ResearchFormDataService.getAll()
       .then(response => {
         this.setState({
-          researchforms: response.data
+          InstanceList: response.data
         });
         console.log(response.data);
       })
@@ -46,7 +46,7 @@ export default class ResearchFormsList extends Component {
   }
 
   refreshList() {
-    this.retrieveResearchForms();
+    this.retrieveInstanceList();
     this.setState({
       currentResearchForm: null,
       currentIndex: -1
@@ -60,7 +60,7 @@ export default class ResearchFormsList extends Component {
     });
   }
 
-  removeAllResearchForms() {
+  removeAllInstanceList() {
     ResearchFormDataService.deleteAll()
       .then(response => {
         console.log(response.data);
@@ -80,7 +80,7 @@ export default class ResearchFormsList extends Component {
     ResearchFormDataService.findByTitle(this.state.searchTitle)
       .then(response => {
         this.setState({
-          researchforms: response.data
+          InstanceList: response.data
         });
         console.log(response.data);
       })
@@ -90,7 +90,7 @@ export default class ResearchFormsList extends Component {
   }
 
   render() {
-    const { searchTitle, researchforms, currentResearchForm, currentIndex } = this.state;
+    const { searchTitle, InstanceList, currentResearchForm, currentIndex } = this.state;
 
     return (
       <div className="list row">
@@ -115,11 +115,11 @@ export default class ResearchFormsList extends Component {
           </div>
         </div>
         <div className="col-md-6">
-          <h4>Forms List</h4>
+          <h4>Submission list</h4>
 
           <ul className="list-group">
-            {researchforms &&
-              researchforms.map((researchform, index) => (
+            {InstanceList &&
+              InstanceList.map((researchform, index) => (
                 <li
                   className={
                     "list-group-item " +
@@ -135,7 +135,7 @@ export default class ResearchFormsList extends Component {
 
           <button
             className="m-3 btn btn-sm btn-danger"
-            onClick={this.removeAllResearchForms}
+            onClick={this.removeAllInstanceList}
           >
             Remove All
           </button>
@@ -143,7 +143,7 @@ export default class ResearchFormsList extends Component {
         <div className="col-md-6">
           {currentResearchForm ? (
             <div>
-              <h4>Form </h4>
+              <h4>Instance </h4>
               <div>
                 <label>
                   <strong>Title:</strong>
@@ -156,21 +156,9 @@ export default class ResearchFormsList extends Component {
                 </label>{" "}
                 {currentResearchForm.description}
               </div>
-              <div>
-                <label>
-                  <strong>Status:</strong>
-                </label>{" "}
-                {currentResearchForm.published ? "Published" : "Pending"}
-              </div>
-              <Link
-                to={"/researchforms/" + currentResearchForm.id}
-                className="badge badge-success"
-              >
-                Create instance
-              </Link>
 
               <Link
-                to={"/researchforms/" + currentResearchForm.id}
+                to={"/InstanceList/" + currentResearchForm.id}
                 className="badge badge-warning"
               >
                 Edit
@@ -179,7 +167,7 @@ export default class ResearchFormsList extends Component {
           ) : (
             <div>
               <br />
-              <p>Please click on a form...</p>
+              <p>Please click on a submission...</p>
             </div>
           )}
         </div>

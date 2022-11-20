@@ -44,7 +44,9 @@ export default class AddTutorial extends Component {
           title: response.data.title,
           description: response.data.description,
           published: response.data.published,
-
+          instance: response.data.instance,
+          answers: response.data.answers,
+          questions: response.data.questions,
           submitted: true
         });
         console.log(response.data);
