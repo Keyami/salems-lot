@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import TutorialDataService from "../services/researchform.service";
+import ResearchFormDataService from "../services/researchform.service";
 
-export default class AddTutorial extends Component {
+export default class AddResearchForm extends Component {
   constructor(props) {
     super(props);
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
-    this.saveTutorial = this.saveTutorial.bind(this);
-    this.newTutorial = this.newTutorial.bind(this);
+    this.saveResearchForm = this.saveResearchForm.bind(this);
+    this.newResearchForm = this.newResearchForm.bind(this);
 
     this.state = {
       id: null,
@@ -31,20 +31,22 @@ export default class AddTutorial extends Component {
     });
   }
 
-  saveTutorial() {
+  saveResearchForm() {
     var data = {
       title: this.state.title,
       description: this.state.description
     };
 
-    TutorialDataService.create(data)
+    ResearchFormDataService.create(data)
       .then(response => {
         this.setState({
           id: response.data.id,
           title: response.data.title,
           description: response.data.description,
           published: response.data.published,
-
+          instance: response.data.instance,
+          answers: response.data.answers,
+          questions: response.data.questions,
           submitted: true
         });
         console.log(response.data);
@@ -54,7 +56,7 @@ export default class AddTutorial extends Component {
       });
   }
 
-  newTutorial() {
+  newResearchForm() {
     this.setState({
       id: null,
       title: "",
@@ -71,7 +73,7 @@ export default class AddTutorial extends Component {
         {this.state.submitted ? (
           <div>
             <h4>You submitted successfully!</h4>
-            <button className="btn btn-success" onClick={this.newTutorial}>
+            <button className="btn btn-success" onClick={this.newResearchForm}>
               Add
             </button>
           </div>
@@ -103,7 +105,7 @@ export default class AddTutorial extends Component {
               />
             </div>
 
-            <button onClick={this.saveTutorial} className="btn btn-success">
+            <button onClick={this.saveResearchForm} className="btn btn-success">
               Submit
             </button>
           </div>

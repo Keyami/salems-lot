@@ -1,8 +1,15 @@
+/*
+ *
+ * From mockup, "Outcome of selecting ‘Edit’ on a user submitted instance."
+ * Currently clone of researchform.component.js
+ *
+ */
+
 import React, { Component } from "react";
 import ResearchFormDataService from "../services/researchform.service";
 import { withRouter } from '../common/with-router';
 
-class ResearchForm extends Component {
+class ResearchFormInstance extends Component {
   constructor(props) {
     super(props);
     this.onChangeTitle = this.onChangeTitle.bind(this);
@@ -17,7 +24,10 @@ class ResearchForm extends Component {
         id: null,
         title: "",
         description: "",
-        published: false
+        published: false,
+        instance: true,
+        answers: [],
+        questions: []
       },
       message: ""
     };
@@ -107,7 +117,7 @@ class ResearchForm extends Component {
     ResearchFormDataService.delete(this.state.currentResearchForm.id)
       .then(response => {
         console.log(response.data);
-        this.props.router.navigate('/s');
+        this.props.router.navigate('/researchforms');
       })
       .catch(e => {
         console.log(e);
@@ -115,7 +125,7 @@ class ResearchForm extends Component {
   }
 
   render() {
-    const { currentResearchForm} = this.state;
+    const { currentResearchForm: currentResearchForm } = this.state;
 
     return (
       <div>
@@ -146,7 +156,7 @@ class ResearchForm extends Component {
 
               <div className="form-group">
                 <label>
-                  <strong>Status:</strong>
+                  <strong>Status: </strong>
                 </label>
                 {currentResearchForm.published ? "Published" : "Pending"}
               </div>
@@ -195,4 +205,4 @@ class ResearchForm extends Component {
   }
 }
 
-export default withRouter(ResearchForm);
+export default withRouter(ResearchFormInstance);

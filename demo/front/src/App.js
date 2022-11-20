@@ -6,6 +6,8 @@ import "./App.css";
 import AddResearchForm from "./components/add-researchform.component";
 import ResearchForm from "./components/reseachform.component";
 import ResearchFormsList from "./components/researchform-list.component";
+import InstanceList from "./components/instance-list.component";
+
 
 class App extends Component {
   render() {
@@ -18,12 +20,17 @@ class App extends Component {
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
               <Link to={"/researchforms"} className="nav-link">
-                Forms
+                Form list
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to={"/submissions"} className="nav-link">
+                Submission list
               </Link>
             </li>
             <li className="nav-item">
               <Link to={"/add"} className="nav-link">
-                Add
+                Create form
               </Link>
             </li>
           </div>
@@ -33,6 +40,7 @@ class App extends Component {
           <Routes>
             <Route path="/" element={<ResearchFormsList/>} />
             <Route path="/researchforms" element={<ResearchFormsList/>} />
+            <Route path="/submissions" element={<InstanceList/>} />
             <Route path="/add" element={<AddResearchForm/>} />
             <Route path="/researchforms/:id" element={<ResearchForm/>} />
           </Routes>
