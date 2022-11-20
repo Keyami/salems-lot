@@ -55,22 +55,6 @@ $install mongoDB community edition
 (end)REQUIREMENTS
 ------------
 
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-RECOMMENDED MODULES
--------------------
-
-
-(end)RECOMMENDED MODULES
--------------------
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 INSTALLATION
@@ -78,12 +62,7 @@ INSTALLATION
 ~~~~~~~~~~~~~~~						checklist						                        ~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~													                            ~~~~~~~~~~~~~~~~~~
 $cd into root directory of checklist
- * npm install react@latest react-dom@latest
- * npm install react-router-dom
- * npm install bootstrap@4.6.2
- * npm install react-bootstrap
- * npm install axios
- * npm install react-validation validator
+ * npm install react@latest react-dom@latest react-router-dom bootstrap@4.6.2 react-bootstrap axios react-validation validator sass
 
 ~~~~~~~~~~~~~~~						auth_server						                        ~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~													                            ~~~~~~~~~~~~~~~~~~
@@ -95,43 +74,6 @@ $cd .. (to root of project)
 (end)INSTALLATION
 ------------
 
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-CONFIGURATION
--------------
-
-
-~~~~~~~~~~~~~~~						checklist						~~~~~~~~~~~~~~~~~~~~
-~~~~~~~~~~~~~~~													~~~~~~~~~~~~~~~~~~~~
-
-$cd into root directory of checklist
- * npm install react@latest react-dom@latest
- * npm install react-router-dom
- * npm install bootstrap@4.6.2
- * npm install axios
- * npm install react-validation validator
- * npm install sass
-~~~~~~~~~~~~~~~						auth_server						~~~~~~~~~~~~~~~~~~~~
-~~~~~~~~~~~~~~~													~~~~~~~~~~~~~~~~~~~~
-$cd .. (to root of project)
- * cd auth_server
- * npm install express mongoose cors jsonwebtoken bcryptjs --save
-
-
-(end)CONFIGURATION
--------------
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-TROUBLESHOOTING
----------------
-
-(end)TROUBLESHOOTING
----------------
-
-FAQ
----
 
 MAINTAINERS
 -----------
