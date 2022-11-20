@@ -7,5 +7,4 @@ const db = {};
 db.mongoose = mongoose;
 db.url = dbConfig.url;
 db.researchforms = require("./researchform.model.js")(mongoose);
-
 module.exports = db;
