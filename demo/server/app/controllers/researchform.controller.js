@@ -11,7 +11,9 @@ exports.create = (req, res) => {
     // Create a Form
     const researchform = new ResearchForm({
       title: req.body.title,
-      description: req.body.description,
+      sectionNames: req.body.sectionNames,
+      checklistFields: req.body.checklistFields,
+      postSession: req.body.postSession,
       published: req.body.published ? req.body.published : false
     });
   

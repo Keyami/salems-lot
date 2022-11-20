@@ -6,7 +6,9 @@ module.exports = mongoose => {
       mongoose.Schema(
         {
           title: String,
-          description: String,
+          sectionNames: [{sections: []}],
+          checklistFields: [{statements: [], section: []}],
+          postSession: [{question: []}], 
           published: Boolean, 
           instance: Boolean, //true or false whether or not this form is an instance or a form
           answers: [], //answers to a form, NULL if instance = false
@@ -25,7 +27,9 @@ module.exports = mongoose => {
       mongoose.Schema(
         {
           title: String,
-          description: String,
+          sectionNames: [{sections: []}],
+          checklistFields: [{statements: [], section: []}],
+          postSession: [{question: []}], 
           published: Boolean, 
           instance: Boolean, //true or false whether or not this form is an instance or a form
           answers: [], //answers to a form, NULL if instance = false
