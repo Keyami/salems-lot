@@ -6,6 +6,7 @@
  */
 
 import React, { Component } from "react";
+import './../custom.scss';
 import ResearchFormDataService from "../services/researchform.service";
 import { withRouter } from '../common/with-router';
 

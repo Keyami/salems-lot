@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './../custom.scss';
 import ResearchFormDataService from "../services/researchform.service";
 import { Link } from "react-router-dom";
 
@@ -115,7 +116,7 @@ export default class InstanceList extends Component {
           </div>
         </div>
         <div className="col-md-6">
-          <h4>Submission list</h4>
+          <h4>Submission List</h4>
 
           <ul className="list-group">
             {InstanceList &&

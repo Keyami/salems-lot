@@ -1,0 +1,15 @@
+/* custom.scss */
+$colorTop: #FEEEB6;
+$colorBottom: #CFAE70;
+$bg-gradient: linear-gradient(to right, $colorTop,$colorBottom);
+
+$primary: #FEEEB6;
+$warning: #CFAE70;
+$dark: #CFAE70;
+$success: #1C1C1C;
+
+/*FEEEB6 CFAE70 1C1C1C FFFFFF*/
+
+/* end custom.scss */
+
+@import '~bootstrap/scss/bootstrap.scss';

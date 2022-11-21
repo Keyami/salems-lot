@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './../custom.scss';
 import ResearchFormDataService from "../services/researchform.service";
 import { Link } from "react-router-dom";
 
@@ -168,7 +169,7 @@ export default class ResearchFormsList extends Component {
               >
                 Create instance
               </Link>
-
+              &nbsp;&nbsp;
               <Link
                 to={"/researchforms/" + currentResearchForm.id}
                 className="badge badge-warning"

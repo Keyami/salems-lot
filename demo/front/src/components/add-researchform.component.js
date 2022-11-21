@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import './../custom.scss';
+import Button from "react-bootstrap/Button";
 import ResearchFormDataService from "../services/researchform.service";
 
 export default class AddResearchForm extends Component {
@@ -148,9 +150,9 @@ handleRemovePostSession = idx => () => {
         {this.state.submitted ? (
           <div>
             <h4>You submitted successfully!</h4>
-            <button className="btn btn-success" onClick={this.newResearchForm}>
+            <Button className="btn btn-success" onClick={this.newResearchForm}>
               Add
-            </button>
+            </Button>
           </div>
         ) : (
           <div>
@@ -178,16 +180,16 @@ handleRemovePostSession = idx => () => {
                 value={sectionName.sections}
                 onChange={this.handleSectionNameChange(idx)}
               />
-              <button
-              type="button"
+              <Button
+              type="Button"
               
-              onClick={this.handleRemoveSectionNames(idx)}>X</button>
+              onClick={this.handleRemoveSectionNames(idx)}>X</Button>
             </div>
             ))}
-            <button
-            type="button"
+            <Button
+            type="Button"
             onClick={this.handleAddSectionNames}
-            >Add a Section</button>
+            >Add a Section</Button>
             <div>
             <label htmlFor="checklistFields">Checklist Statements:</label>
             {this.state.checklistFields.map((checklistField, idx) => (
@@ -207,15 +209,15 @@ handleRemovePostSession = idx => () => {
                 value={checklistField.section}
                 onChange={this.handleSectChange(idx)}
               />
-              <button
-              type="button"
-              onClick={this.handleRemoveChecklistFields(idx)}>X</button>
+              <Button
+              type="Button"
+              onClick={this.handleRemoveChecklistFields(idx)}>X</Button>
             </div>
             ))}
-            <button
-            type="button"
+            <Button
+            type="Button"
             onClick={this.handleAddChecklistFields}
-            >Add a Statement</button>
+            >Add a Statement</Button>
             
             
             </div>
@@ -230,19 +232,19 @@ handleRemovePostSession = idx => () => {
                 value={postSession.question}
                 onChange={this.handlePostSessionChange(idx)}
               />
-              <button
-              type="button"
-              onClick={this.handleRemovePostSession(idx)}>X</button>
+              <Button
+              type="Button"
+              onClick={this.handleRemovePostSession(idx)} className="btn btn-primary">X</Button>
             </div>
             ))}
-            <button
-            type="button"
+            <Button
+            type="Button"
             onClick={this.handleAddPostSession}
-            >Add a Question</button>
-
-            <button onClick={this.saveResearchForm} className="btn btn-success">
+            >Add a Question</Button>
+            &nbsp;&nbsp;
+            <Button onClick={this.saveResearchForm} className="btn btn-success me-1">
               Submit
-            </button>
+            </Button>
           </div>
         )}
       </div>
