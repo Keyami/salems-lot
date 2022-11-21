@@ -1,17 +1,13 @@
-/*
- *
- * From mockup, "Outcome of selecting ‘Edit’ on a user submitted instance."
- * Currently clone of researchform.component.js
- *
- */
-
 import React, { Component } from "react";
 import './../custom.scss';
 import ResearchFormDataService from "../services/researchform.service";
 import { withRouter } from '../common/with-router';
+import { saveAs } from "file-saver";
 
-class ResearchFormInstance extends Component {
+class ResearchForm extends Component {
+  
   constructor(props) {
+
     super(props);
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
@@ -21,17 +17,22 @@ class ResearchFormInstance extends Component {
     this.deleteResearchForm = this.deleteResearchForm.bind(this);
 
     this.state = {
-      currentResearchForm: {
-        id: null,
-        title: "",
-        description: "",
-        published: false,
-        instance: true,
-        answers: [],
-        questions: []
-      },
-      message: ""
+      id: null,
+      title: "",
+      //description: "",
+      sectionNames: [{sections: []}],
+      checklistFields: [{statements: [], section: []}],
+      postSession: [{question: []}], 
+      published: false,
+      instance: true,
+      
+      submitted: false
     };
+}
+
+  exportFile(test) {
+    var blob = new Blob([test], { type: "text/plain;charset=utf-8" });
+    saveAs(blob, "a1.txt");
   }
 
   componentDidMount() {
@@ -68,7 +69,7 @@ class ResearchFormInstance extends Component {
         this.setState({
           currentResearchForm: response.data
         });
-        console.log(response.data);
+        console.log(response.data.sectionNames[0].sections[0]);
       })
       .catch(e => {
         console.log(e);
@@ -118,21 +119,44 @@ class ResearchFormInstance extends Component {
     ResearchFormDataService.delete(this.state.currentResearchForm.id)
       .then(response => {
         console.log(response.data);
-        this.props.router.navigate('/researchforms');
+        this.props.router.navigate('/s');
       })
       .catch(e => {
         console.log(e);
       });
   }
 
-  render() {
-    const { currentResearchForm: currentResearchForm } = this.state;
+  listQuestions(id) {
+    ResearchFormDataService.get(id)
+      .then(response => {
+        this.setState({
+          currentResearchForm: response.data
+        });
+        for (let i = 0; i < response.data.sectionNames.length; i++) {
+          console.log("Title: "+ response.data.sectionNames[i].sections[0]);
+          for (let j = 0; j < response.data.checklistFields.length; j++) { 
+            if (response.data.checklistFields[j].section[0] === response.data.sectionNames[i].sections[0]) {
+              console.log(j+1 + ". " + response.data.checklistFields[j].statements[0]);
 
+              
+
+            }
+          }
+        }
+
+      })
+      .catch(e => {
+        console.log(e);
+      });
+      
+      }
+
+  render() {
     return (
       <div>
-        {currentResearchForm ? (
-          <div className="edit-form">
+        <div className="edit-form">
             <h4>Session Questionnaire</h4>
+
             <form>
               <div className="form-group">
                 <label htmlFor="title">Title</label>
@@ -140,70 +164,31 @@ class ResearchFormInstance extends Component {
                   type="text"
                   className="form-control"
                   id="title"
-                  value={currentResearchForm.title}
+                  //value={currentResearchForm.title}
                   onChange={this.onChangeTitle}
                 />
               </div>
+
               <div className="form-group">
                 <label htmlFor="description">Description</label>
                 <input
                   type="text"
                   className="form-control"
                   id="description"
-                  value={currentResearchForm.description}
+                  //value={currentResearchForm.description}
                   onChange={this.onChangeDescription}
                 />
               </div>
+      
+              <button onClick={() => this.listQuestions(this.props.router.params.id)} className="btn btn-success">
+                Submit
+              </button>
 
-              <div className="form-group">
-                <label>
-                  <strong>Status: </strong>
-                </label>
-                {currentResearchForm.published ? "Published" : "Pending"}
-              </div>
             </form>
-
-            {currentResearchForm.published ? (
-              <button
-                className="badge badge-primary mr-2"
-                onClick={() => this.updatePublished(false)}
-              >
-                UnPublish
-              </button>
-            ) : (
-              <button
-                className="badge badge-primary mr-2"
-                onClick={() => this.updatePublished(true)}
-              >
-                Publish
-              </button>
-            )}
-
-            <button
-              className="badge badge-danger mr-2"
-              onClick={this.deleteResearchForm}
-            >
-              Delete
-            </button>
-
-            <button
-              type="submit"
-              className="badge badge-success"
-              onClick={this.updateResearchForm}
-            >
-              Update
-            </button>
-            <p>{this.state.message}</p>
-          </div>
-        ) : (
-          <div>
-            <br />
-            <p>Please click on a Form...</p>
-          </div>
-        )}
+        </div>
       </div>
-    );
+    )
   }
 }
 
-export default withRouter(ResearchFormInstance);
+export default withRouter(ResearchForm);

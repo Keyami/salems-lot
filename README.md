@@ -62,7 +62,7 @@ INSTALLATION
 ~~~~~~~~~~~~~~~						checklist						                        ~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~													                            ~~~~~~~~~~~~~~~~~~
 $cd into root directory of checklist
- * npm install react@latest react-dom@latest react-router-dom bootstrap@4.6.2 react-bootstrap axios react-validation validator sass
+ * npm install react@latest react-dom@latest react-router-dom bootstrap@4.6.2 react-bootstrap axios react-validation validator sass file-saver
 
 ~~~~~~~~~~~~~~~						auth_server						                        ~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~													                            ~~~~~~~~~~~~~~~~~~

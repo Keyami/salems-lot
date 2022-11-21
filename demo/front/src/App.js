@@ -7,6 +7,7 @@ import AddResearchForm from "./components/add-researchform.component";
 import ResearchForm from "./components/reseachform.component";
 import ResearchFormsList from "./components/researchform-list.component";
 import InstanceList from "./components/instance-list.component";
+import InstanceListQuestions from "./components/TESTINSTANCE";
 
 
 class App extends Component {
@@ -43,6 +44,7 @@ class App extends Component {
             <Route path="/submissions" element={<InstanceList/>} />
             <Route path="/add" element={<AddResearchForm/>} />
             <Route path="/researchforms/:id" element={<ResearchForm/>} />
+            <Route path="/instancelist/:id" element={<InstanceListQuestions />} />
           </Routes>
         </div>
       </div>

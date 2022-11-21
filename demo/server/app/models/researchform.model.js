@@ -5,14 +5,12 @@ module.exports = mongoose => {
       "researchform",
       mongoose.Schema(
         {
+          id: null,
           title: String,
           sectionNames: [{sections: []}],
           checklistFields: [{statements: [], section: []}],
           postSession: [{question: []}], 
           published: Boolean, 
-          instance: Boolean, //true or false whether or not this form is an instance or a form
-          answers: [], //answers to a form, NULL if instance = false
-          questions: [] //questions of a form
         },
         { timestamps: true }
       )
@@ -30,10 +28,8 @@ module.exports = mongoose => {
           sectionNames: [{sections: []}],
           checklistFields: [{statements: [], section: []}],
           postSession: [{question: []}], 
-          published: Boolean, 
-          instance: Boolean, //true or false whether or not this form is an instance or a form
-          answers: [], //answers to a form, NULL if instance = false
-          questions: [] //questions of a form
+          published: Boolean,
+          instance: Boolean 
         },
         { timestamps: true }
       )

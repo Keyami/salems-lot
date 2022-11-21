@@ -163,13 +163,7 @@ export default class ResearchFormsList extends Component {
                 </label>{" "}
                 {currentResearchForm.published ? "Published" : "Pending"}
               </div>
-              <Link
-                to={"/researchforms/" + currentResearchForm.id}
-                className="badge badge-success"
-              >
-                Create instance
-              </Link>
-              &nbsp;&nbsp;
+
               <Link
                 to={"/researchforms/" + currentResearchForm.id}
                 className="badge badge-warning"

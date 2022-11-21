@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import './../custom.scss';
 import ResearchFormDataService from "../services/researchform.service";
 import { Link } from "react-router-dom";
+import { saveAs } from "file-saver";
+
 
 export default class InstanceList extends Component {
   constructor(props) {
@@ -14,11 +16,20 @@ export default class InstanceList extends Component {
     this.searchTitle = this.searchTitle.bind(this);
 
     this.state = {
-      InstanceList: [],
-      currentResearchForm: null,
-      currentIndex: -1,
-      searchTitle: ""
+      id: null,
+      title: "",
+      sectionNames: [{sections: []}],
+      checklistFields: [{statements: [], section: []}],
+      postSession: [{question: []}], 
+      published: false,
+      
+      submitted: false
     };
+  }
+
+  exportFile(test) {
+    var blob = new Blob([test], { type: "text/plain;charset=utf-8" });
+    saveAs(blob, "testfile1.txt");
   }
 
   componentDidMount() {
@@ -157,12 +168,11 @@ export default class InstanceList extends Component {
                 </label>{" "}
                 {currentResearchForm.description}
               </div>
-
               <Link
-                to={"/InstanceList/" + currentResearchForm.id}
-                className="badge badge-warning"
+                to={"/instancelist/" + currentResearchForm._id}
+                className="badge badge-success"
               >
-                Edit
+                Create instance
               </Link>
             </div>
           ) : (
