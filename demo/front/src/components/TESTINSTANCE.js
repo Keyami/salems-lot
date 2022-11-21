@@ -12,9 +12,8 @@ class ResearchForm extends Component {
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
     this.getResearchForm = this.getResearchForm.bind(this);
-    this.updatePublished = this.updatePublished.bind(this);
-    this.updateResearchForm = this.updateResearchForm.bind(this);
-    this.deleteResearchForm = this.deleteResearchForm.bind(this);
+    this.updateList = this.updateList.bind(this);
+    this.listQuestions = this.listQuestions.bind(this);
 
     this.state = {
       id: null,
@@ -23,6 +22,7 @@ class ResearchForm extends Component {
       sectionNames: [{sections: []}],
       checklistFields: [{statements: [], section: []}],
       postSession: [{question: []}], 
+      output: ["test"],
       published: false,
       instance: true,
       
@@ -69,61 +69,16 @@ class ResearchForm extends Component {
         this.setState({
           currentResearchForm: response.data
         });
-        console.log(response.data.sectionNames[0].sections[0]);
       })
       .catch(e => {
         console.log(e);
       });
-  }
+  }blank
 
-  updatePublished(status) {
-    var data = {
-      id: this.state.currentResearchForm.id,
-      title: this.state.currentResearchForm.title,
-      description: this.state.currentResearchForm.description,
-      published: status
-    };
-
-    ResearchFormDataService.update(this.state.currentResearchForm.id, data)
-      .then(response => {
-        this.setState(prevState => ({
-          currentResearchForm: {
-            ...prevState.currentResearchForm,
-            published: status
-          }
-        }));
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  }
-
-  updateResearchForm() {
-    ResearchFormDataService.update(
-      this.state.currentResearchForm.id,
-      this.state.currentResearchForm
-    )
-      .then(response => {
-        console.log(response.data);
-        this.setState({
-          message: "The form was updated successfully!"
-        });
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  }
-
-  deleteResearchForm() {    
-    ResearchFormDataService.delete(this.state.currentResearchForm.id)
-      .then(response => {
-        console.log(response.data);
-        this.props.router.navigate('/s');
-      })
-      .catch(e => {
-        console.log(e);
-      });
+  updateList = (value) => {
+    //const updateOutput = this.state.output.map(l => Object.assign([], l));
+    //updateOutput[id] = value;
+    this.setState({output: [...this.state.output, value]})
   }
 
   listQuestions(id) {
@@ -132,15 +87,20 @@ class ResearchForm extends Component {
         this.setState({
           currentResearchForm: response.data
         });
+
+        var holder;
         for (let i = 0; i < response.data.sectionNames.length; i++) {
-          console.log("Title: "+ response.data.sectionNames[i].sections[0]);
-          for (let j = 0; j < response.data.checklistFields.length; j++) { 
+          //this.setState({output: [...this.state.output, response.data.sectionNames[i].sections[0]]})
+          this.setState(prevState => ({ output: [...this.state.output, response.data.sectionNames[i].sections[0]]}))
+          //this.updateList(toString(holder));
+
+          /*for (let j = 0; j < response.data.checklistFields.length; j++) { 
             if (response.data.checklistFields[j].section[0] === response.data.sectionNames[i].sections[0]) {
-              console.log(j+1 + ". " + response.data.checklistFields[j].statements[0]);
-              
+              var holder = response.data.checklistFields[j].statements[0];
+              this.updateList(j, holder); 
 
             }
-          }
+          }*/
         }
 
       })
@@ -149,8 +109,12 @@ class ResearchForm extends Component {
       });
       
       }
+      
+      
+      /*onClick={() => this.listQuestions(this.props.router.params.id)} */
 
   render() {
+
     return (
       <div>
         <div className="edit-form">
@@ -178,8 +142,26 @@ class ResearchForm extends Component {
                   onChange={this.onChangeDescription}
                 />
               </div>
+
+            {this.state.output.map((value, index) => 
+              <div key={ index } className="form-group">
+                      <label htmlFor="title">{value}</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="title"
+                        //value={currentResearchForm.title}
+                        onChange={this.onChangeTitle}
+                      />
+                    </div>
+
+                )
+              }
       
-              <button onClick={() => this.listQuestions(this.props.router.params.id)} className="btn btn-success">
+              <button type="button" onClick={() => this.listQuestions(this.props.router.params.id)} className="btn btn-success">
+                Submit
+              </button>
+              <button type="button" onClick={() => this.updateList("truck")} className="btn btn-success">
                 Submit
               </button>
 
