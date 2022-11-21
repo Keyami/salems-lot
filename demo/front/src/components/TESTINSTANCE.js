@@ -137,7 +137,6 @@ class ResearchForm extends Component {
           for (let j = 0; j < response.data.checklistFields.length; j++) { 
             if (response.data.checklistFields[j].section[0] === response.data.sectionNames[i].sections[0]) {
               console.log(j+1 + ". " + response.data.checklistFields[j].statements[0]);
-
               
 
             }
