@@ -7,9 +7,9 @@ module.exports = mongoose => {
         {
           id: null,
           title: String,
-          sectionNames: [{sections: []}],
+          sectionNames: [],
           checklistFields: [{statements: [], section: []}],
-          postSession: [{question: []}], 
+          postSession: [], 
           published: Boolean, 
         },
         { timestamps: true }
@@ -25,9 +25,9 @@ module.exports = mongoose => {
       mongoose.Schema(
         {
           title: String,
-          sectionNames: [{sections: []}],
-          checklistFields: [{statements: [], section: []}],
-          postSession: [{question: []}], 
+          sectionNames: [],
+          checklistFields: [],
+          postSession: [], 
           published: Boolean,
           instance: Boolean 
         },

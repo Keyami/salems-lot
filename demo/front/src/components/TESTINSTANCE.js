@@ -19,10 +19,10 @@ class ResearchForm extends Component {
       id: null,
       title: "",
       //description: "",
-      sectionNames: [{sections: []}],
+      sectionNames: [],
       checklistFields: [{statements: [], section: []}],
-      postSession: [{question: []}], 
-      output: ["test"],
+      postSession: [], 
+      output: ["test", "test", "test"],
       published: false,
       instance: true,
       
@@ -75,11 +75,17 @@ class ResearchForm extends Component {
       });
   }blank
 
-  updateList = (value) => {
-    //const updateOutput = this.state.output.map(l => Object.assign([], l));
-    //updateOutput[id] = value;
-    this.setState({output: [...this.state.output, value]})
+  updateList = (value, index) => {
+    console.log("Passed = " + value);
+
+    this.state.output.forEach(killMe(value, index, this.state.output));
+    function killMe(item, index, a) {
+       //a[index] = item;
+       //console.log(a[index]);
+    }
+    console.log(this.state.output[index]);
   }
+  
 
   listQuestions(id) {
     ResearchFormDataService.get(id)
@@ -89,18 +95,13 @@ class ResearchForm extends Component {
         });
 
         var holder;
-        for (let i = 0; i < response.data.sectionNames.length; i++) {
-          //this.setState({output: [...this.state.output, response.data.sectionNames[i].sections[0]]})
-          this.setState(prevState => ({ output: [...this.state.output, response.data.sectionNames[i].sections[0]]}))
-          //this.updateList(toString(holder));
+        var arr1 = ["fuck", "you", "bitch"];
+        for (let i = 0; i < arr1.length; i++) {
 
-          /*for (let j = 0; j < response.data.checklistFields.length; j++) { 
-            if (response.data.checklistFields[j].section[0] === response.data.sectionNames[i].sections[0]) {
-              var holder = response.data.checklistFields[j].statements[0];
-              this.updateList(j, holder); 
+          holder = arr1[i];
+          console.log(i + "    " + holder)
 
-            }
-          }*/
+          this.updateList(holder, i);
         }
 
       })
@@ -149,7 +150,7 @@ class ResearchForm extends Component {
                       <input
                         type="text"
                         className="form-control"
-                        id="title"
+                        id={"title"+index}
                         //value={currentResearchForm.title}
                         onChange={this.onChangeTitle}
                       />
@@ -159,10 +160,10 @@ class ResearchForm extends Component {
               }
       
               <button type="button" onClick={() => this.listQuestions(this.props.router.params.id)} className="btn btn-success">
-                Submit
+                Submit listQuestions
               </button>
-              <button type="button" onClick={() => this.updateList("truck")} className="btn btn-success">
-                Submit
+              <button type="button" onClick={() => this.updateList("KILL ME NOW", 1)} className="btn btn-success">
+              Submit updateList
               </button>
 
             </form>
