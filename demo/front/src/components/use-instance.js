@@ -26,9 +26,6 @@ class ResearchForm extends Component {
       checklistFields: [{statements: [], section: []}],
       postSession: [], 
       published: false,
-      instance: true,
-      
-      submitted: false
     };
 }
 
@@ -78,11 +75,11 @@ class ResearchForm extends Component {
             //in our checklistFields array we have a value that tells us what section the question is apart of
             //this if statement simply checks if the question our iterator is on belongs to the parent section
             //in the above loop.
-            if (response.data.checklistFields[j].section[0] === response.data.sectionNames[i].sections[0]) {
+            if (response.data.checklistFields[j].section === response.data.sectionNames[i].sections) {
               //append the question text as well as an input field to answer this question
               parent.innerHTML += 
                 //the {count} in this is simply assigning every input a unique id
-                `</br><label>${response.data.checklistFields[j].statements[0]}</label> 
+                `</br><label>${response.data.checklistFields[j].statements}</label> 
                 </br> 
                 <div className="form-group">
                 <input type="text" 
@@ -105,7 +102,7 @@ class ResearchForm extends Component {
           //append the question text as well as an input field to answer this question
           parent.innerHTML += 
           //the {i} in this is simply assigning every input a unique id
-          `</br><label>${response.data.postSession[i].question[0]}</label> 
+          `</br><label>${response.data.postSession[i].question}</label> 
           </br> 
           <div className="form-group">
           <input type="text" 
@@ -158,9 +155,9 @@ class ResearchForm extends Component {
         //in our checklistFields array we have a value that tells us what section the question is apart of
         //this if statement simply checks if the question our iterator is on belongs to the parent section
         //in the above loop.
-        if (response.data.checklistFields[j].section[0] === response.data.sectionNames[i].sections[0]) {
+        if (response.data.checklistFields[j].section === response.data.sectionNames[i].sections) {
           //response.data.checklistFields[j].statements[0] is a question, append it to the text file
-          out += '\t' + (count+1) + ". " + response.data.checklistFields[j].statements[0] + '\n';
+          out += '\t' + (count+1) + ". " + response.data.checklistFields[j].statements + '\n';
           //append the answer provided to the current question to the text file, this would be getElementByID("form${j}")
           out += '\t' + document.getElementById("form" + count).value + '\n';
           //increment count
@@ -174,7 +171,7 @@ class ResearchForm extends Component {
     //iterate over # of postsession questions
     for (let i = 0; i < response.data.postSession.length; i++) {
       //appends the question asked to the string
-      out += '\t' + (i+1) + ". " + response.data.postSession[i].question[0] + '\n';
+      out += '\t' + (i+1) + ". " + response.data.postSession[i].question + '\n';
       //appends the answer given to the string
       out += '\t' + document.getElementById("post" + i).value + '\n';
     }

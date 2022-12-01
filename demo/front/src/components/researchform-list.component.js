@@ -14,10 +14,14 @@ export default class ResearchFormsList extends Component {
     this.searchTitle = this.searchTitle.bind(this);
 
     this.state = {
-      researchforms: [],
-      currentResearchForm: null,
-      currentIndex: -1,
-      searchTitle: ""
+      id: null,
+      title: "",
+      sectionNames: [{sections: []}],
+      checklistFields: [{statements: [], section: []}],
+      postSession: [{question: []}], 
+      published: false,
+      
+      submitted: false
     };
   }
 
@@ -83,6 +87,22 @@ export default class ResearchFormsList extends Component {
         this.setState({
           researchforms: response.data
         });
+        console.log(response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
+
+  updatePublished() {
+    ResearchFormDataService.get(this.props.router.params.id)
+      .then(response => {
+        this.setState(prevState => ({
+          currentResearchForm: {
+            ...prevState.currentResearchForm,
+            published: true
+          }
+        }));
         console.log(response.data);
       })
       .catch(e => {
@@ -165,7 +185,7 @@ export default class ResearchFormsList extends Component {
               </div>
 
               <Link
-                to={"/researchforms/" + currentResearchForm.id}
+                to={"/researchforms/" + currentResearchForm._id}
                 className="badge badge-warning"
               >
                 Edit

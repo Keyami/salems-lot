@@ -18,7 +18,7 @@ class ResearchFormDataService {
   }
 
   delete(id) {
-    return http.delete(`/researchform/${id}`);
+    return http.delete(`/researchforms/${id}`);
   }
 
   deleteAll() {

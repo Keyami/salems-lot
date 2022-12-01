@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import './../custom.scss';
 import ResearchFormDataService from "../services/researchform.service";
 import { Link } from "react-router-dom";
-import { saveAs } from "file-saver";
-
 
 export default class InstanceList extends Component {
   constructor(props) {
@@ -25,11 +23,6 @@ export default class InstanceList extends Component {
       
       submitted: false
     };
-  }
-
-  exportFile(test) {
-    var blob = new Blob([test], { type: "text/plain;charset=utf-8" });
-    saveAs(blob, "testfile1.txt");
   }
 
   componentDidMount() {
@@ -132,16 +125,19 @@ export default class InstanceList extends Component {
           <ul className="list-group">
             {InstanceList &&
               InstanceList.map((researchform, index) => (
-                <li
-                  className={
-                    "list-group-item " +
-                    (index === currentIndex ? "active" : "")
-                  }
-                  onClick={() => this.setActiveResearchForm(researchform, index)}
-                  key={index}
-                >
-                  {researchform.title}
-                </li>
+                researchform.published === true
+                ? <li
+                className={
+                  "list-group-item " +
+                  (index === currentIndex ? "active" : "")
+                }
+                onClick={() => this.setActiveResearchForm(researchform, index)}
+                key={index}
+              >
+                {researchform.title}
+              </li>
+              : null
+
               ))}
           </ul>
 

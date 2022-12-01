@@ -9,18 +9,17 @@ class ResearchForm extends Component {
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
     this.getResearchForm = this.getResearchForm.bind(this);
-    this.updatePublished = this.updatePublished.bind(this);
     this.updateResearchForm = this.updateResearchForm.bind(this);
+    this.updatePublished = this.updatePublished.bind(this);
     this.deleteResearchForm = this.deleteResearchForm.bind(this);
 
     this.state = {
-      currentResearchForm: {
-        id: null,
-        title: "",
-        description: "",
-        published: false
-      },
-      message: ""
+      id: null,
+      title: "",
+      sectionNames: [],
+      checklistFields: [{statements: [], section: []}],
+      postSession: [], 
+      published: false,
     };
   }
 
@@ -65,50 +64,32 @@ class ResearchForm extends Component {
       });
   }
 
-  updatePublished(status) {
-    var data = {
-      id: this.state.currentResearchForm.id,
-      title: this.state.currentResearchForm.title,
-      description: this.state.currentResearchForm.description,
-      published: status
-    };
-
-    ResearchFormDataService.update(this.state.currentResearchForm.id, data)
-      .then(response => {
-        this.setState(prevState => ({
-          currentResearchForm: {
-            ...prevState.currentResearchForm,
-            published: status
-          }
-        }));
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  }
+  updatePublished(value) {
+    ResearchFormDataService.update(
+      this.props.router.params.id,
+      this.state.currentResearchForm
+    ).then(
+    this.setState(prevState => ({
+      currentResearchForm: {                   
+          ...prevState.currentResearchForm,    
+          published: value     
+      }
+    })));
+    this.updateResearchForm();
+   }
 
   updateResearchForm() {
     ResearchFormDataService.update(
-      this.state.currentResearchForm.id,
+      this.props.router.params.id,
       this.state.currentResearchForm
     )
-      .then(response => {
-        console.log(response.data);
-        this.setState({
-          message: "The form was updated successfully!"
-        });
-      })
-      .catch(e => {
-        console.log(e);
-      });
   }
 
   deleteResearchForm() {    
-    ResearchFormDataService.delete(this.state.currentResearchForm.id)
+    ResearchFormDataService.delete(this.props.router.params.id)
       .then(response => {
         console.log(response.data);
-        this.props.router.navigate('/s');
+        this.props.router.navigate('/');
       })
       .catch(e => {
         console.log(e);
@@ -134,40 +115,32 @@ class ResearchForm extends Component {
                   onChange={this.onChangeTitle}
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="description">Description</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="description"
-                  value={currentResearchForm.description}
-                  onChange={this.onChangeDescription}
-                />
-              </div>
 
               <div className="form-group">
                 <label>
-                  <strong>Status:</strong>
+                  <strong>Status: </strong>
+                  
                 </label>
-                {currentResearchForm.published ? "Published" : "Pending"}
+                {currentResearchForm.published ? " Published" : " Pending"}
               </div>
             </form>
 
-            {currentResearchForm.published ? (
+            {currentResearchForm.published ?
               <button
+                type="submit"
                 className="badge badge-primary mr-2"
                 onClick={() => this.updatePublished(false)}
               >
-                UnPublish
+                Unpublish
               </button>
-            ) : (
+              :
               <button
+                type="submit"
                 className="badge badge-primary mr-2"
                 onClick={() => this.updatePublished(true)}
               >
                 Publish
-              </button>
-            )}
+              </button>}
 
             <button
               className="badge badge-danger mr-2"
@@ -184,6 +157,7 @@ class ResearchForm extends Component {
               Update
             </button>
             <p>{this.state.message}</p>
+            <p>Click update after changing published status.</p>
           </div>
         ) : (
           <div>

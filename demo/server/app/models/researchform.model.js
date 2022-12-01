@@ -29,7 +29,6 @@ module.exports = mongoose => {
           checklistFields: [],
           postSession: [], 
           published: Boolean,
-          instance: Boolean 
         },
         { timestamps: true }
       )
