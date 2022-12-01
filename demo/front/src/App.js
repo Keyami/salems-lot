@@ -7,7 +7,7 @@ import AddResearchForm from "./components/add-researchform.component";
 import ResearchForm from "./components/reseachform.component";
 import ResearchFormsList from "./components/researchform-list.component";
 import InstanceList from "./components/instance-list.component";
-import InstanceListQuestions from "./components/TESTINSTANCE";
+import InstanceListQuestions from "./components/use-instance";
 
 
 class App extends Component {
