@@ -36,6 +36,7 @@ CSCI 4700 (2022) Project: "Create an app/software that could take in a procedure
 
 (end)INTRODUCTION
 ------------
+	To create a procedural checklist form for our customer's stated desire for a management system for dynamic form data and collection. 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -46,10 +47,11 @@ This section describes the module requirements for the following modules:
 ~~~~~~~~~~~~~~~						Project						~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~													~~~~~~~~~~~~~~~~~~~~
 			
-$clone repo
-$create branch
-$install mongoDB community edition
-	*create new db named salems_lot_db
+$clone repo to local machine
+$install most recent installation of node.js from
+	https://nodejs.org/dist/v19.2.0/node-v19.2.0-x64.msi
+$install mongoDB compass community edition from
+	https://www.mongodb.com/products/compass
 													DEV TOOLS
 														POSTMAN install 							
 (end)REQUIREMENTS
@@ -61,18 +63,51 @@ INSTALLATION
 ------------
 ~~~~~~~~~~~~~~~						checklist						                        ~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~													                            ~~~~~~~~~~~~~~~~~~
-$cd into root directory of checklist
- * npm install react@latest react-dom@latest react-router-dom bootstrap@4.6.2 react-bootstrap axios react-validation validator sass file-saver
+$cd into root directory cloned folder
 
-~~~~~~~~~~~~~~~						auth_server						                        ~~~~~~~~~~~~~~~~~~
+								cd demo/front
+ 		* npm install react@latest react-dom@latest react-router-dom bootstrap@4.6.2 react-bootstrap axios react-validation validator sass file-saver
+
+~~~~~~~~~~~~~~~						server						                        ~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~													                            ~~~~~~~~~~~~~~~~~~
 $cd .. (to root of project)
- * cd auth_server
+	cd demo/server
  * npm install express mongoose cors jsonwebtoken bcryptjs --save
 
 
 (end)INSTALLATION
 ------------
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+USAGE
+------------
+1. Home view / Notes List is list of forms to make instances for each questionnaire. 
+	This allows the application to hold many forms for general use with the ability to customize and add new forms as necessary.
+
+2. Submission List holds forms for general use and submission. 
+
+3. To create a new form to publish, Select Create Form at top
+	First section is list of sections to create. 
+		Ex.
+		 Pre-Session / During Session / Post-Session
+	To add questions to section, 
+
+		Add a new statement and type the section name to fill.
+		Repeat as necessary
+			(Choice selector soon to feature drop-down list from user options.)
+		Click submit to publish to available notes. 
+
+	To publish a form for general use and customization
+		Select note in Note List View, and select Publish. 
+			Note will then appear in 
+
+	To fill a form out with questionnaire data
+		Look through published notes and click Create Instance 
+		Answer questions accordingly and then click submit
+		File save option will prompt for location to save on local computer
+		Click Ok to save
 
 
 MAINTAINERS
