@@ -115,12 +115,12 @@ MAINTAINERS
 -----------
 
 Current maintainers:
- * Brian
+ * Brian Baharloo
  * Brice Roberts (devloren) - https://github.com/devloren
- * Gage  (Keyami) - https://github.com/Keyami
- * Jaylon
- * Pierce
- * Riley
+ * Gage Richardson  (Keyami) - https://github.com/Keyami
+ * Jaylon Atkins
+ * Pierce Patrick
+ * Riley Welch
 
  
 This project has been sponsored by:
