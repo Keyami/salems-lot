@@ -83,13 +83,14 @@ $cd .. (to root of project)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 USAGE
 ------------
-1. Home view / Notes List is list of forms to make instances for each questionnaire. 
+1. Home view / Notes List 
+	This page is list of template forms to create instances for each study questionnaire. 
 	This allows the application to hold many forms for general use with the ability to customize and add new forms as necessary.
 
 2. Submission List holds forms for general use and submission. 
 
 3. To create a new form to publish, Select Create Form at top
-	First section is list of sections to create. 
+	Top section is list of sections to create. 
 		Ex.
 		 Pre-Session / During Session / Post-Session
 	To add questions to section, 
@@ -116,7 +117,7 @@ MAINTAINERS
 Current maintainers:
  * Brian
  * Brice Roberts (devloren) - https://github.com/devloren
- * Gage  
+ * Gage  (Keyami) - https://github.com/Keyami
  * Jaylon
  * Pierce
  * Riley
