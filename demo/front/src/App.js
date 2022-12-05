@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 import AddResearchForm from "./components/add-researchform.component";
-import ResearchForm from "./components/reseachform.component";
+import ResearchForm from "./components/researchform.component";
 import ResearchFormsList from "./components/researchform-list.component";
 import InstanceList from "./components/instance-list.component";
 import InstanceListQuestions from "./components/use-instance";

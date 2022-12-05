@@ -5,12 +5,11 @@ module.exports = mongoose => {
       "researchform",
       mongoose.Schema(
         {
-          id: null,
           title: String,
           sectionNames: [],
-          checklistFields: [{statements: [], section: []}],
+          checklistFields: [],
           postSession: [], 
-          published: Boolean, 
+          published: Boolean,
         },
         { timestamps: true }
       )
